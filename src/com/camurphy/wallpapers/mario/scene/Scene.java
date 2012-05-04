@@ -1,9 +1,9 @@
-package com.camurphy.wallpapers.mario.scenes;
+package com.camurphy.wallpapers.mario.scene;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.camurphy.wallpapers.mario.objects.Object;
+import com.camurphy.wallpapers.mario.object.Object;
 import com.camurphy.wallpapers.mario.animation.Animator;
 
 import android.content.res.Resources;
@@ -13,7 +13,10 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 
 public abstract class Scene {
-
+    /**
+     * Double the width of the unscaled background image, to give the '3D' effect of the background moving slower
+     * than the foreground when scrolling.
+     */
     public static final int STAGE_WIDTH_UNSCALED = 424;
 
     public static final int ORIENTATION_PORTRAIT = 0;
@@ -161,7 +164,6 @@ public abstract class Scene {
         }
 
         if (scale != mScale) {
-
             mScale = scale;
 
             // Scale images

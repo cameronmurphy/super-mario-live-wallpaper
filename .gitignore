@@ -8,9 +8,13 @@
 # Java class files
 *.class
 
+#IntelliJ IDEA project files
+.idea/
+
 # generated files
 bin/
 gen/
+out/
 
 # Local configuration file (sdk path, etc)
 local.properties

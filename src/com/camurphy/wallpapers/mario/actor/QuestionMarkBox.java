@@ -1,21 +1,21 @@
-package com.camurphy.wallpapers.mario.objects;
+package com.camurphy.wallpapers.mario.actor;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-public class Grass extends Object {
+public class QuestionMarkBox extends Actor {
 
     private Bitmap mFrame1, mFrame1Scaled, mFrame2, mFrame2Scaled,
             mFrame3, mFrame3Scaled;
 
     private int mCurrentFrame = 1;
 
-    private static final String IMAGE_FRAME_1_IDENTIFIER = "overworld_grass_frame_1";
-    private static final String IMAGE_FRAME_2_IDENTIFIER = "overworld_grass_frame_2";
-    private static final String IMAGE_FRAME_3_IDENTIFIER = "overworld_grass_frame_3";
+    private static final String IMAGE_FRAME_1_IDENTIFIER = "box_question_frame_1";
+    private static final String IMAGE_FRAME_2_IDENTIFIER = "box_question_frame_2";
+    private static final String IMAGE_FRAME_3_IDENTIFIER = "box_question_frame_3";
 
-    public Grass(Resources res, String packageName) {
+    public QuestionMarkBox(Resources res, String packageName) {
         super(res, packageName);
 
         // Cache sprites
@@ -48,8 +48,6 @@ public class Grass extends Object {
         case 2:
             return mFrame2Scaled;
         case 3:
-            return mFrame1Scaled;
-        case 4:
             return mFrame3Scaled;
         }
 

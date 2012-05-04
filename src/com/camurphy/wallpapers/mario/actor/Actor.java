@@ -1,8 +1,8 @@
-package com.camurphy.wallpapers.mario.actors;
+package com.camurphy.wallpapers.mario.actor;
 
 import android.content.res.Resources;
 
-import com.camurphy.wallpapers.mario.objects.Object;
+import com.camurphy.wallpapers.mario.object.Object;
 
 public abstract class Actor extends Object {
 

@@ -1,11 +1,10 @@
-package com.camurphy.wallpapers.mario.objects;
+package com.camurphy.wallpapers.mario.object;
 
 import com.camurphy.wallpapers.mario.IObserver;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.util.Log;
 import android.content.res.Resources;
 
 /**

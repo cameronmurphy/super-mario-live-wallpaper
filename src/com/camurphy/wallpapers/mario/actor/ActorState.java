@@ -1,4 +1,4 @@
-package com.camurphy.wallpapers.mario.actors;
+package com.camurphy.wallpapers.mario.actor;
 
 import com.camurphy.wallpapers.mario.IObserver;
 

@@ -1,18 +1,16 @@
-package com.camurphy.wallpapers.mario.scenes;
+package com.camurphy.wallpapers.mario.scene;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
-import com.camurphy.wallpapers.mario.actors.Mario;
-import com.camurphy.wallpapers.mario.actors.QuestionMarkBox;
+import com.camurphy.wallpapers.mario.actor.QuestionMarkBox;
 import com.camurphy.wallpapers.mario.animation.OverworldAnimator;
-import com.camurphy.wallpapers.mario.objects.BoxGroup;
-import com.camurphy.wallpapers.mario.objects.BrickBox;
-import com.camurphy.wallpapers.mario.objects.Grass;
-import com.camurphy.wallpapers.mario.objects.Hill;
-import com.camurphy.wallpapers.mario.scenes.Scene;
+import com.camurphy.wallpapers.mario.object.BoxGroup;
+import com.camurphy.wallpapers.mario.object.BrickBox;
+import com.camurphy.wallpapers.mario.object.Grass;
+import com.camurphy.wallpapers.mario.object.Hill;
 
 public class OverworldScene extends Scene {
 
@@ -24,6 +22,9 @@ public class OverworldScene extends Scene {
 
     private static final int OBJECT_QUESTION_BOX_1_POSITION_X = 115;
     private static final int OBJECT_QUESTION_BOX_1_POSITION_Y = 117;
+
+    private static final int OBJECT_QUESTION_BOX_2_POSITION_X = 408;
+    private static final int OBJECT_QUESTION_BOX_2_POSITION_Y = 117;
 
     private static final int OBJECT_BOX_GROUP_POSITION_X = 172;
     private static final int OBJECT_BOX_GROUP_POSITION_Y = 117;
@@ -53,11 +54,11 @@ public class OverworldScene extends Scene {
         mChildren.add(grass);
         animator.addGrassObject(grass);
 
-        QuestionMarkBox questionBox = new QuestionMarkBox(res, packageName);
-        questionBox.setUnscaledPositionX(OBJECT_QUESTION_BOX_1_POSITION_X);
-        questionBox.setUnscaledPositionY(OBJECT_QUESTION_BOX_1_POSITION_Y);
-        mChildren.add(questionBox);
-        animator.addQuestionMarkBox(questionBox);
+        QuestionMarkBox questionMarkBox1 = new QuestionMarkBox(res, packageName);
+        questionMarkBox1.setUnscaledPositionX(OBJECT_QUESTION_BOX_1_POSITION_X);
+        questionMarkBox1.setUnscaledPositionY(OBJECT_QUESTION_BOX_1_POSITION_Y);
+        mChildren.add(questionMarkBox1);
+        animator.addQuestionMarkBox(questionMarkBox1);
 
         BoxGroup boxGroup = new BoxGroup(res, packageName);
         boxGroup.setUnscaledPositionX(OBJECT_BOX_GROUP_POSITION_X);
@@ -75,15 +76,15 @@ public class OverworldScene extends Scene {
         boxGroup.addBox(box);
         animator.addQuestionMarkBox(box);
 
+        QuestionMarkBox questionMarkBox2 = new QuestionMarkBox(res, packageName);
+        questionMarkBox2.setUnscaledPositionX(OBJECT_QUESTION_BOX_2_POSITION_X);
+        questionMarkBox2.setUnscaledPositionY(OBJECT_QUESTION_BOX_2_POSITION_Y);
+        mChildren.add(questionMarkBox2);
+        animator.addQuestionMarkBox(questionMarkBox2);
+
         boxGroup.addBox(new BrickBox(res, packageName));
 
         mChildren.add(boxGroup);
-
-        Mario mario = new Mario(res, packageName);
-        // TODO - Initial position will be a script instruction
-        mario.setUnscaledPositionX(-16);
-        mario.setUnscaledPositionY(151);
-        mChildren.add(mario);
     }
 
     @Override

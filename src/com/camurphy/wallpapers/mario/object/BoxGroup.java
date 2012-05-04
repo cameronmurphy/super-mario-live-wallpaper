@@ -1,4 +1,4 @@
-package com.camurphy.wallpapers.mario.objects;
+package com.camurphy.wallpapers.mario.object;
 
 import java.util.ArrayList;
 import java.util.List;

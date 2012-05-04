@@ -1,10 +1,8 @@
-package com.camurphy.wallpapers.mario.actors.states;
+package com.camurphy.wallpapers.mario.actor.states;
 
-import android.util.Log;
-
-import com.camurphy.wallpapers.mario.actors.Actor;
-import com.camurphy.wallpapers.mario.actors.ActorState;
-import com.camurphy.wallpapers.mario.actors.Mario;
+import com.camurphy.wallpapers.mario.actor.Actor;
+import com.camurphy.wallpapers.mario.actor.ActorState;
+import com.camurphy.wallpapers.mario.actor.Mario;
 import com.camurphy.wallpapers.mario.animation.Sequencer;
 
 public class MarioLargeRunningActorState extends ActorState {
@@ -22,15 +20,6 @@ public class MarioLargeRunningActorState extends ActorState {
     private int mStartPositionX = -30;
 
     private long mElapsed;
-
-    // Singleton stuff
-    public static ActorState getInstance() {
-        if (sInstance == null) {
-            sInstance = new MarioLargeRunningActorState();
-        }
-
-        return sInstance;
-    }
 
     private MarioLargeRunningActorState() {
         super();
@@ -81,8 +70,6 @@ public class MarioLargeRunningActorState extends ActorState {
         if (mElapsed >= 6200) {
             mElapsed = -100;
         }
-
-        Log.d("com.camurphy.wallpapers.mario", Long.toString(mElapsed));
 
         mActor.setPositionX(mStartPositionX + (int) (mElapsed * mSpeedScaledX / 1000));
     }

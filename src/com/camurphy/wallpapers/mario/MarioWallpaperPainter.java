@@ -1,7 +1,7 @@
 package com.camurphy.wallpapers.mario;
 
-import com.camurphy.wallpapers.mario.scenes.Scene;
-import com.camurphy.wallpapers.mario.scenes.OverworldScene;
+import com.camurphy.wallpapers.mario.scene.Scene;
+import com.camurphy.wallpapers.mario.scene.OverworldScene;
 
 import android.content.Context;
 import android.graphics.Canvas;

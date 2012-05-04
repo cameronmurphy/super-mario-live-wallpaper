@@ -1,14 +1,14 @@
-package com.camurphy.wallpapers.mario.actors;
-
-import com.camurphy.wallpapers.mario.actors.states.MarioLargeRunningActorState;
+package com.camurphy.wallpapers.mario.actor;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
+// TODO - This should be a state machine. States will be assigned by at 'Director' or 'Script' class and they will
+//        consume elapsed milliseconds as necessary, performing adjustments of Actor position and sprite and then they
+//        will notify the Actor that a change of state is required and the next state must be retrieved somehow. If at
+//        this point there is remaining time the next state must start performing its duties as necessary.
 public class Mario extends Actor {
-
     public static final int FRAME_SMALL_STATIONARY = 1;
     public static final int FRAME_SMALL_RUNNING_1 = 2;
     public static final int FRAME_SMALL_RUNNING_2 = 3;
@@ -44,11 +44,6 @@ public class Mario extends Actor {
         mLargeStationary = BitmapFactory.decodeResource(res, largeStationaryId);
         mLargeRunning1 = BitmapFactory.decodeResource(res, largeRunning1Id);
         mLargeRunning2 = BitmapFactory.decodeResource(res, largeRunning2Id);
-
-        switch (mState) {
-        case STATE_RUNNING:
-            MarioLargeRunningActorState.getInstance().onEnter(this);
-        }
     }
 
     @Override
@@ -63,11 +58,6 @@ public class Mario extends Actor {
         mLargeRunning2Scaled = Bitmap.createScaledBitmap(mLargeRunning2,
                 (int) (mLargeRunning2.getWidth() * scale), (int) (mLargeRunning2.getHeight()
                         * scale), true);
-
-        switch (mState) {
-        case STATE_RUNNING:
-            MarioLargeRunningActorState.getInstance().updateScale(scale);
-        }
     }
 
     @Override
@@ -90,12 +80,8 @@ public class Mario extends Actor {
         mCurrentFrame = state;
     }
 
-
     @Override
     public void updateElapsedTime(long elapsed) {
-        switch (mState) {
-        case STATE_RUNNING:
-            MarioLargeRunningActorState.getInstance().updateElapsedTime(elapsed);
-        }
+        // TODO - Tell the current state how much time has passed since the previous game loop iteration
     }
 }

@@ -1,13 +1,13 @@
 package com.camurphy.wallpapers.mario.animation;
 
-import com.camurphy.wallpapers.mario.actors.QuestionMarkBox;
-import com.camurphy.wallpapers.mario.objects.Grass;
+import com.camurphy.wallpapers.mario.actor.QuestionMarkBox;
+import com.camurphy.wallpapers.mario.object.Grass;
 
 public class OverworldAnimator extends Animator {
 
     private Sequencer mQuestionMarkBoxSequencer;
     private Sequencer mGrassSequencer;
-    	
+
     public OverworldAnimator() {
         super();
 

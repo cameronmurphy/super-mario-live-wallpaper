@@ -25,7 +25,6 @@ public class MarioWallpaper extends WallpaperService {
     }
 
     class MarioEngine extends Engine {
-
         /** X-axis offset when rendering in landscape mode measured in pixels
          * of the original images */
         public static final int RENDERING_LANDSCAPE_X_OFFSET = 53;

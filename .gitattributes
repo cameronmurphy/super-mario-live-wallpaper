@@ -1,5 +1,5 @@
 *.xml text eol=lf
-*.java test eol=lf
+*.java text eol=lf
 .gitattributes text eol=lf
 .gitmodules text eol=lf
 .gitignore text eol=lf

@@ -1,5 +1,14 @@
+# IntelliJ IDEA files
+.idea
+*.iml
+
+# Hidden files
+*.DS_Store
+
 # built application files
 *.apk
+*.apk.res
+*.apk.unaligned
 *.ap_
 
 # files for the dex VM
@@ -8,9 +17,6 @@
 # Java class files
 *.class
 
-#IntelliJ IDEA project files
-.idea/
-
 # generated files
 bin/
 gen/
@@ -18,3 +24,6 @@ out/
 
 # Local configuration file (sdk path, etc)
 local.properties
+
+# Output directories
+housemates/out

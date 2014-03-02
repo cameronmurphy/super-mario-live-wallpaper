@@ -41,12 +41,6 @@ public class MarioWallpaperPainter extends Thread {
         mFpsTextHeight = textBounds.height();
     }
 
-    public void startPainting() {
-        synchronized (this) {
-            this.start();
-        }
-    }
-
     public void pausePainting() {
         mThreadWaiting = true;
         synchronized (this) {

@@ -16,6 +16,7 @@ public abstract class ActorState implements IObserver {
 
     // Prevent cloning
     public Object clone() throws CloneNotSupportedException {
+        super.clone();
         throw new CloneNotSupportedException();
     }
 

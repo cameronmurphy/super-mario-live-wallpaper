@@ -24,15 +24,15 @@ public class Sequencer {
 
         // Calculate and store the frame times
         for (int i = 0; i < frameCount; i++) {
-            // mFrameTimes represents the end time in milliseconds of each frame. The first frame
-            // (when i is 0) ends after 1/frameRate seconds or 1000/frameRate milliseconds. The
-            // second frame ends at 2000/frameRate milliseconds etc.
+            // mFrameTimes represents the end time in milliseconds of each frame. The first frame (when i is 0) ends
+            // after 1/frameRate seconds or 1000/frameRate milliseconds. The second frame ends at 2000/frameRate
+            // milliseconds etc.
             mFrameTimes[i] = (1000 * (i + 1)) / frameRate;
         }
     }
 
     public boolean hasObservers() {
-        return mObservers.isEmpty() == false;
+        return !mObservers.isEmpty();
     }
 
     public void updateElapsedTime(long elapsed) {
@@ -46,9 +46,8 @@ public class Sequencer {
         int frameCount = mFrameCount;
         int newFrame = 1;
 
-        // If our millisecond counter has ventured past the end of the final frame (lastFrameTime),
-        // keep subtracting the full length of the sequence until it is below this value. This
-        // caters for long pauses in rendering.
+        // If our millisecond counter has ventured past the end of the final frame (lastFrameTime), keep subtracting the
+        // full length of the sequence until it is below this value. This caters for long pauses in rendering.
         if (elapsedTime > lastFrameTime) {
             while (elapsedTime > lastFrameTime) {
                 elapsedTime -= lastFrameTime;
@@ -57,10 +56,9 @@ public class Sequencer {
 
         // Loop through the frames of the sequence
         for (int i = 0; i < frameCount; i++) {
-            // This block tests where our millisecond counter is in relation to our frame times.
-            // Seeing as our frame times represent when each frame ends, this block does not execute
-            // when the millisecond counter is between 0 and the end time of the first frame but
-            // this does not matter because newFrame defaults to 1.
+            // This block tests where our millisecond counter is in relation to our frame times. Seeing as our frame
+            // times represent when each frame ends, this block does not execute when the millisecond counter is between
+            // 0 and the end time of the first frame but this does not matter because newFrame defaults to 1.
             if ((elapsedTime > frameTimes[i]) && (elapsedTime <= frameTimes[i + 1])) {
                 newFrame = i + 2;
             }
@@ -70,6 +68,7 @@ public class Sequencer {
         if (newFrame != mCurrentFrame) {
             List<IObserver> observers = mObservers;
             int observerCount = observers.size();
+
             for (int i = 0; i < observerCount; i++) {
                 observers.get(i).update(newFrame);
             }

@@ -104,33 +104,29 @@ public abstract class Scene {
     public void onOffsetChanged(float xOffset) {
         mOffset = xOffset;
 
-        // This calculates the left position of the view rectangle for the background.
-        // xOffset is 0 when we are at the far left home screen, 0.5 when we are at the middle
-        // home screen and 1 when we are at the far right home screen. This conveniently
-        // represents the percentage of our journey across the background image that should be
-        // complete. What we're interested in is by how many pixels the view rectangle needs to
-        // be displaced. The maximum displacement is obviously when our view rectangle is
-        // against the right side of the background image. At this point, our displacement is
-        // the width of the background image minus the width of our rectangle. Our rectangle is
-        // the size of the screen so mScreenWidth is appropriate. The result of this multiplied
-        // with xOffset gives us the pixel displacement we were after.
+        // This calculates the left position of the view rectangle for the background. xOffset is 0 when we are at the
+        // far left home screen, 0.5 when we are at the middle home screen and 1 when we are at the far right home
+        // screen. This conveniently represents the percentage of our journey across the background image that should be
+        // complete. What we're interested in is by how many pixels the view rectangle needs to be displaced. The
+        // maximum displacement is obviously when our view rectangle is against the right side of the background image.
+        // At this point, our displacement is the width of the background image minus the width of our rectangle. Our
+        // rectangle is the size of the screen so mScreenWidth is appropriate. The result of this multiplied with
+        // xOffset gives us the pixel displacement we were after.
         int viewRectLeft = (int) ((mBackgroundImageScaled.getWidth() - mScreenWidth) * xOffset);
 
-        mBackgroundSrcRect = new Rect(viewRectLeft, mScreenOffsetY, viewRectLeft +
-                mScreenWidth, mScreenOffsetY + mScreenHeight);
+        mBackgroundSrcRect = new Rect(viewRectLeft, mScreenOffsetY, viewRectLeft + mScreenWidth,
+                mScreenOffsetY + mScreenHeight);
 
         // TODO - Explain
         mStageOffsetX = (int) (xOffset * (mStageWidth - mScreenWidth));
     }
 
     public void setScreenSize(int width, int height) {
-
         mScreenWidth = width;
         mScreenHeight = height;
 
-        int backgroundWidth = 1, backgroundHeight = 1;
-
-        double scale = 0;
+        int backgroundWidth, backgroundHeight;
+        double scale;
 
         // Calculate background image size to maintain aspect ratio and fill the screen
         // vertically in portrait
@@ -153,13 +149,11 @@ public abstract class Scene {
             if (landscapeOffsetY >= 0) {
                 mScreenOffsetY = (int) (landscapeOffsetY * scale);
             } else {
-                // When landscapeOffsetY is negative we want to offset the view from the bottom of
-                // the screen and not from the top. To calculate an offset that would place our view
-                // at the bottom we subtract the height of the screen from the height of the
-                // background image. To offset the view by the desired amount we invert the negative
-                // landscapeOffsetY value, scale it then subtract that.
-                mScreenOffsetY = mBackgroundImageScaled.getHeight() - height -
-                        (int) (landscapeOffsetY * -1 * scale);
+                // When landscapeOffsetY is negative we want to offset the view from the bottom of the screen and not
+                // from the top. To calculate an offset that would place our view at the bottom we subtract the height
+                // of the screen from the height of the background image. To offset the view by the desired amount we
+                // invert the negative landscapeOffsetY value, scale it then subtract that.
+                mScreenOffsetY = mBackgroundImageScaled.getHeight() - height - (int) (landscapeOffsetY * -1 * scale);
             }
         }
 
@@ -179,8 +173,7 @@ public abstract class Scene {
         }
 
         // Create a default source rectangle for the background image
-        mBackgroundSrcRect = new Rect(0, mScreenOffsetY, mScreenWidth, mScreenOffsetY +
-                mScreenHeight);
+        mBackgroundSrcRect = new Rect(0, mScreenOffsetY, mScreenWidth, mScreenOffsetY + mScreenHeight);
         mBackgroundDestRect = new Rect(0, 0, mScreenWidth, mScreenHeight);
     }
 }

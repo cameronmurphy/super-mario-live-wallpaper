@@ -33,8 +33,7 @@ public class BoxGroup extends Object {
 
         int childrenCount = children.size();
 
-        // The change of scale will have changed the position and size of the first box in the
-        // group.
+        // The change of scale will have changed the position and size of the first box in the group.
         int firstChildPositionX = -1;
         int boxWidth = -1;
 

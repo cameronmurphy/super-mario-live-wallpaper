@@ -70,7 +70,7 @@ public abstract class Object implements IObserver {
                     scale), (int) (mImage.getHeight() * scale), true);
         }
 
-        if (explicitPositionX == false) {
+        if (!explicitPositionX) {
             mPositionX = (int) (mUnscaledPositionX * scale);
         }
 

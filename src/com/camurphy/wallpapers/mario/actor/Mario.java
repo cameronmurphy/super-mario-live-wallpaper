@@ -34,12 +34,9 @@ public class Mario extends Actor {
     public Mario(Resources res, String packageName) {
         super(res, packageName);
 
-        int largeStationaryId = res.getIdentifier(IMAGE_FRAME_LARGE_STATIONARY_IDENTIFIER,
-                "drawable", packageName);
-        int largeRunning1Id = res.getIdentifier(IMAGE_FRAME_LARGE_RUNNING_1_IDENTIFIER, "drawable",
-                packageName);
-        int largeRunning2Id = res.getIdentifier(IMAGE_FRAME_LARGE_RUNNING_2_IDENTIFIER, "drawable",
-                packageName);
+        int largeStationaryId = res.getIdentifier(IMAGE_FRAME_LARGE_STATIONARY_IDENTIFIER, "drawable", packageName);
+        int largeRunning1Id = res.getIdentifier(IMAGE_FRAME_LARGE_RUNNING_1_IDENTIFIER, "drawable", packageName);
+        int largeRunning2Id = res.getIdentifier(IMAGE_FRAME_LARGE_RUNNING_2_IDENTIFIER, "drawable", packageName);
 
         mLargeStationary = BitmapFactory.decodeResource(res, largeStationaryId);
         mLargeRunning1 = BitmapFactory.decodeResource(res, largeRunning1Id);
@@ -49,15 +46,26 @@ public class Mario extends Actor {
     @Override
     public void updateScale(double scale) {
         super.updateScale(scale);
-        mLargeStationaryScaled = Bitmap.createScaledBitmap(mLargeStationary,
-                (int) (mLargeStationary.getWidth() * scale), (int) (mLargeStationary.getHeight()
-                        * scale), true);
-        mLargeRunning1Scaled = Bitmap.createScaledBitmap(mLargeRunning1,
-                (int) (mLargeRunning1.getWidth() * scale), (int) (mLargeRunning1.getHeight()
-                        * scale), true);
-        mLargeRunning2Scaled = Bitmap.createScaledBitmap(mLargeRunning2,
-                (int) (mLargeRunning2.getWidth() * scale), (int) (mLargeRunning2.getHeight()
-                        * scale), true);
+        mLargeStationaryScaled = Bitmap.createScaledBitmap(
+                mLargeStationary,
+                (int) (mLargeStationary.getWidth() * scale),
+                (int) (mLargeStationary.getHeight()* scale),
+                true
+        );
+
+        mLargeRunning1Scaled = Bitmap.createScaledBitmap(
+                mLargeRunning1,
+                (int) (mLargeRunning1.getWidth() * scale),
+                (int) (mLargeRunning1.getHeight() * scale),
+                true
+        );
+
+        mLargeRunning2Scaled = Bitmap.createScaledBitmap(
+                mLargeRunning2,
+                (int) (mLargeRunning2.getWidth() * scale),
+                (int) (mLargeRunning2.getHeight() * scale),
+                true
+        );
     }
 
     @Override

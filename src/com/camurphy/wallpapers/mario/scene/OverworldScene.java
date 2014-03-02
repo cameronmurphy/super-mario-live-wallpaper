@@ -14,6 +14,8 @@ import com.camurphy.wallpapers.mario.object.Hill;
 
 public class OverworldScene extends Scene {
 
+    public static final int LANDSCAPE_OFFSET_Y = -20;
+
     private static final int OBJECT_HILL_POSITION_X = 3;
     private static final int OBJECT_HILL_POSITION_Y = 145;
 
@@ -22,9 +24,6 @@ public class OverworldScene extends Scene {
 
     private static final int OBJECT_QUESTION_BOX_1_POSITION_X = 95;
     private static final int OBJECT_QUESTION_BOX_1_POSITION_Y = 117;
-
-    private static final int OBJECT_QUESTION_BOX_2_POSITION_X = 408;
-    private static final int OBJECT_QUESTION_BOX_2_POSITION_Y = 117;
 
     private static final int OBJECT_BOX_GROUP_POSITION_X = 172;
     private static final int OBJECT_BOX_GROUP_POSITION_Y = 117;
@@ -76,12 +75,6 @@ public class OverworldScene extends Scene {
         boxGroup.addBox(box);
         animator.addQuestionMarkBox(box);
 
-        QuestionMarkBox questionMarkBox2 = new QuestionMarkBox(res, packageName);
-        questionMarkBox2.setUnscaledPositionX(OBJECT_QUESTION_BOX_2_POSITION_X);
-        questionMarkBox2.setUnscaledPositionY(OBJECT_QUESTION_BOX_2_POSITION_Y);
-        mChildren.add(questionMarkBox2);
-        animator.addQuestionMarkBox(questionMarkBox2);
-
         boxGroup.addBox(new BrickBox(res, packageName));
 
         mChildren.add(boxGroup);
@@ -94,7 +87,7 @@ public class OverworldScene extends Scene {
 
     @Override
     protected int getLandscapeOffsetY() {
-        return -20;
+        return LANDSCAPE_OFFSET_Y;
     }
 
     @Override
@@ -102,8 +95,8 @@ public class OverworldScene extends Scene {
         super.onOffsetChanged(xOffset);
 
         // Calculates how many pixels to offset the ground tiles by.
-        // This is found by calculating the remainder of the division of mStageOffsetX (how many
-        // pixels between stage left and screen left) and the width of a ground tile.
+        // This is found by calculating the remainder of the division of mStageOffsetX (how many pixels between stage
+        // left and screen left) and the width of a ground tile.
         mGroundTileOffsetX = mStageOffsetX % mGroundImageScaled.getWidth();
     }
 
@@ -115,8 +108,7 @@ public class OverworldScene extends Scene {
         mGroundTileCount = mScreenWidth / mGroundImageScaled.getWidth() + 1;
 
         // Calculates the Y coordinate of the ground
-        mGroundPositionY = mBackgroundImageScaled.getHeight() - mGroundImageScaled.getHeight() -
-                mScreenOffsetY;
+        mGroundPositionY = mBackgroundImageScaled.getHeight() - mGroundImageScaled.getHeight() - mScreenOffsetY;
     }
 
     @Override

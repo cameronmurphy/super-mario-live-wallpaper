@@ -20,7 +20,7 @@ public class OverworldScene extends Scene {
     private static final int OBJECT_GRASS_POSITION_X = 100;
     private static final int OBJECT_GRASS_POSITION_Y = 165;
 
-    private static final int OBJECT_QUESTION_BOX_1_POSITION_X = 115;
+    private static final int OBJECT_QUESTION_BOX_1_POSITION_X = 95;
     private static final int OBJECT_QUESTION_BOX_1_POSITION_Y = 117;
 
     private static final int OBJECT_QUESTION_BOX_2_POSITION_X = 408;

@@ -12,7 +12,7 @@ import android.view.SurfaceHolder;
 
 public class MarioWallpaperPainter extends Thread {
 
-    private SurfaceHolder mSurfaceHolder;
+    private final SurfaceHolder mSurfaceHolder;
 
     private boolean mThreadWaiting = true, mThreadRunning;
 
